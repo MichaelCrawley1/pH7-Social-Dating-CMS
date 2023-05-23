@@ -15,6 +15,7 @@ namespace PH7\Framework\Server;
 
 defined('PH7') or exit('Restricted access');
 
+use PH7\Framework\Cache\Cache;
 use PH7\Framework\Core\Kernel;
 use PH7\Framework\Url\Uri;
 
@@ -127,7 +128,7 @@ final class Server
             return $_SERVER;
         }
 
-        return !empty($_SERVER[$sKey]) ? htmlspecialchars($_SERVER[$sKey], ENT_QUOTES) : $sDefVal;
+        return !empty($_SERVER[$sKey]) ? htmlspecialchars((string)$_SERVER[$sKey], ENT_QUOTES) : $sDefVal;
     }
 
     /**
@@ -156,13 +157,12 @@ final class Server
 
     /**
      * Check if Apache's mod_rewrite is installed.
-     *
-     * @return bool
      */
     public static function isRewriteMod(): bool
     {
         // Check if mod_rewrite is installed and is configured to be used via .htaccess
-        if (!strtolower(getenv('HTTP_MOD_REWRITE')) === 'on') {
+        $sHttpModRewrite = self::getVar('HTTP_MOD_REWRITE', '');
+        if (!strtolower($sHttpModRewrite) === 'on') {
             $sOutputMsg = 'mod_rewrite Works!';
 
             if (Uri::getInstance()->fragment(0) === 'test_mod_rewrite') {
@@ -174,6 +174,22 @@ final class Server
         }
 
         return true;
+    }
+
+    public static function cachedIsRewriteMod(): bool
+    {
+        $oCache = (new Cache)->start(
+            'str/server',
+            'isRewriteModStatus',
+            86400
+        );
+
+        if (!$bIsEnabled = $oCache->get()) {
+            $bIsEnabled = self::isRewriteMod();
+            $oCache->put($bIsEnabled);
+        }
+
+        return $bIsEnabled;
     }
 
     /**

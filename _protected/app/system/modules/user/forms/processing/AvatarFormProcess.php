@@ -1,7 +1,7 @@
 <?php
 /**
  * @author         Pierre-Henry Soria <hello@ph7builder.com>
- * @copyright      (c) 2012-2019, Pierre-Henry Soria. All Rights Reserved.
+ * @copyright      (c) 2012-2023, Pierre-Henry Soria. All Rights Reserved.
  * @license        MIT License; See LICENSE.md and COPYRIGHT.md in the root directory.
  * @package        PH7 / App / System / Module / User / Form / Processing
  */
@@ -46,13 +46,14 @@ class AvatarFormProcess extends Form implements NudityDetectable
 
         if (!$bAvatar) {
             \PFBC\Form::setError('form_avatar', Form::wrongImgFileTypeMsg());
-        } else {
-            $sModerationText = t('Your profile photo has been received. It will not be visible until it is approved by our moderators. Please do not send a new one.');
-            $sText = t('Your profile photo has been updated successfully!');
-            $sMsg = $this->iApproved === 0 ? $sModerationText : $sText;
-
-            \PFBC\Form::setSuccess('form_avatar', $sMsg);
+            return;
         }
+
+        $sModerationText = t('Your profile photo has been received. It will not be visible until it is approved by our moderators. Please do not send a new one.');
+        $sText = t('Your profile photo has been updated successfully!');
+        $sMsg = $this->iApproved === 0 ? $sModerationText : $sText;
+
+        \PFBC\Form::setSuccess('form_avatar', $sMsg);
     }
 
     public function isNudityFilterEligible(): bool

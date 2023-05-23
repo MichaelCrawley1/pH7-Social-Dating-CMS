@@ -15,7 +15,7 @@ defined('PH7') or exit('Restricted access');
 use DateTime;
 use Exception;
 use PH7\DbTableName;
-use PH7\ExistsCoreModel;
+use PH7\ExistCoreModel;
 use PH7\Framework\Config\Config;
 use PH7\Framework\Error\CException\PH7InvalidArgumentException;
 use PH7\Framework\Math\Measure\Year as YearMeasure;
@@ -216,7 +216,7 @@ class Validate
     }
 
     /**
-     * Validate Username.
+     * Validate username pattern and check if username is unique (doesn't already exist).
      *
      * @param string $sUsername
      * @param int $iMin Default 3
@@ -230,19 +230,19 @@ class Validate
         $sUsername = trim($sUsername);
 
         /**
-         * Do quicker check for admin profiles,
-         * because they don't have profile page URL (www.mysite.com/@<username>)
-         * and don't need to check banned usernames for them.
+         * Do quicker check for admin usernames.
+         * Admin usernames don't have URL pages (www.mysite.com/@<USERNAME>), so no need to check if any file names conflict with the username
+         * and don't need to check for banned usernames either.
          */
         if ($sTable === DbTableName::ADMIN) {
             return preg_match('#^' . PH7_USERNAME_PATTERN . '{' . $iMin . ',' . $iMax . '}$#', $sUsername) &&
-                !(new ExistsCoreModel)->username($sUsername, $sTable);
+                !(new ExistCoreModel)->username($sUsername, $sTable);
         }
 
         return preg_match('#^' . PH7_USERNAME_PATTERN . '{' . $iMin . ',' . $iMax . '}$#', $sUsername) &&
             !file_exists(PH7_PATH_ROOT . UserCore::PROFILE_PAGE_PREFIX . $sUsername) &&
             !Ban::isUsername($sUsername) &&
-            !(new ExistsCoreModel)->username($sUsername, $sTable);
+            !(new ExistCoreModel)->username($sUsername, $sTable);
     }
 
     /**

@@ -4,7 +4,7 @@
  * @desc           Generate Fake Profiles from Web API.
  *
  * @author         Pierre-Henry Soria <hello@ph7builder.com>
- * @copyright      (c) 2014-2021, Pierre-Henry Soria. All Rights Reserved.
+ * @copyright      (c) 2014-2022, Pierre-Henry Soria. All Rights Reserved.
  * @license        MIT License; See LICENSE.md and COPYRIGHT.md in the root directory.
  * @package        PH7 / App / System / Module / Admin / From / Processing
  */
@@ -28,13 +28,13 @@ class AddFakeProfilesFormProcess extends Form
 {
     public const SERVICE_NAME = 'RandomUser';
     public const SERVICE_URL = 'https://randomuser.me';
-    public const API_VER = '1.3';
+    public const API_VER = '1.4';
 
     private const API_URL = 'https://randomuser.me/api/';
 
     private Validate $oValidate;
 
-    private ExistsCoreModel $oExistsModel;
+    private ExistCoreModel $oExistsModel;
 
     private static int $iTotalGenerated = 0;
 
@@ -44,7 +44,7 @@ class AddFakeProfilesFormProcess extends Form
 
         $oUser = new UserCore;
         $oUserModel = new UserCoreModel;
-        $this->oExistsModel = new ExistsCoreModel;
+        $this->oExistsModel = new ExistCoreModel;
         $this->oValidate = new Validate;
 
         $aUserData = $this->getApiClient()['results'];
@@ -82,10 +82,7 @@ class AddFakeProfilesFormProcess extends Form
         unset($oUser, $oUserModel, $aData);
     }
 
-    /**
-     * @return string|bool|null
-     */
-    protected function getApiClient()
+    protected function getApiClient(): array|bool|null
     {
         $sApiUrl = static::API_URL;
         $sApiParams = '?' . Url::httpBuildQuery($this->getApiParameters(), null, '&');
@@ -111,10 +108,8 @@ class AddFakeProfilesFormProcess extends Form
      * @param string $sApiUrl API URL.
      * @param string $sApiParams Parameters to send to the API.
      * @param string $sApiVersion Version of the API it will use. If fails from the API server, it will ignore it.
-     *
-     * @return string|bool
      */
-    private function getApiResults(string $sApiUrl, string $sApiParams, string $sApiVersion)
+    private function getApiResults(string $sApiUrl, string $sApiParams, string $sApiVersion): string|bool
     {
         if ($rData = $this->file->getFile($sApiUrl . $sApiVersion . PH7_SH . $sApiParams)) {
             return $rData;
@@ -162,7 +157,7 @@ class AddFakeProfilesFormProcess extends Form
         $aData['country'] = Country::fixCode($aUser['nat']);
         $aData['city'] = $this->str->upperFirst($aUser['location']['city']);
         $aData['state'] = $this->str->upperFirst($aUser['location']['state']);
-        $aData['address'] = $this->str->upperFirstWords($aUser['location']['street']);
+        $aData['address'] = $this->str->upperFirstWords($aUser['location']['street']['name']);
         $aData['zip_code'] = $aUser['location']['postcode'];
         $aData['birth_date'] = $this->dateTime->get($aUser['dob']['date'])->date('Y-m-d');
         $aData['avatar'] = $aUser['picture']['large'];

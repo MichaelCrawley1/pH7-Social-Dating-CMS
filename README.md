@@ -1,9 +1,9 @@
 
 # pH7 Social Dating Builder
 
-## ⚡️The 2022 <span style="text-decoration:underline">Killer Dating WebApp Builder</span>! ❤️
+## ⚡️ The 2023 <span style="text-decoration:underline">Social Dating Killer WebApp Builder</span>
 
-### 🚀 The Most Secure, User-Friendly & Open Source Social Dating Web App Software
+### 🚀 Secure, User-Friendly & Open Source Social Dating Web App Software
 
 
 [![PayPal](https://img.shields.io/badge/Donate-PayPal-lightgrey.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X457W3L7DAPC6 "Help keep me off the streets! ;)") [![Build Status](https://scrutinizer-ci.com/g/pH7Software/pH7-Social-Dating-CMS/badges/build.png?b=master)](https://scrutinizer-ci.com/g/pH7Software/pH7-Social-Dating-CMS/build-status/master) [![GPL v3 Licence](https://img.shields.io/aur/license/yaourt.svg)](https://opensource.org/licenses/gpl-3.0.html) [![SourceForge](https://img.shields.io/badge/Download-SourceForge-orange.svg)](https://sourceforge.net/projects/ph7socialdating/files/latest/download) [![Patreon](https://img.shields.io/badge/Subscribe-Patreon-red.svg)](https://www.patreon.com/bePatron?u=3534366 "Become a Patron Today!")
@@ -20,16 +20,17 @@ With **[pH7Builder](https://sourceforge.net/projects/ph7socialdating/files/lates
 
 ![Professional PHP Social Dating Builder Software](https://cloud.githubusercontent.com/assets/1325411/19419476/5475b32c-93d0-11e6-9756-8e7db8df129f.png)
 
-### 🤗 100% Owned by YOU ❤
+### 🤗 100% Owned by YOU! ❤
 
 **Don't let your webapp be controlled by others! 🚀**
 
 Why your business has to be under the mercy of others?
-By choosing pH7Builder, you have complete control of your website and your users!
-You get and own all data and files, hosted on your own server! ✌️
+
+Unlike cloud or SaaS solutions, by choosing pH7Builder, you have the complete control of your website, database and your users!
+You get and own all data and files hosted to your own server (the one you choose) ✌️
 
 
-👉 Convinced by the software? ☕️ Would like to help by **[offer me a coffee](https://www.buymeacoffee.com/ph7cms)**? - and boost the software development at the same time! 🚀
+👉 Convinced by the software? ☕️ You could boost the software development by **[offering a coffee](https://www.buymeacoffee.com/ph7cms)**! 🚀🤗
 
 [![Ko Fi - Offer Me A Flat White](static/img/kofi-logo.png)](https://ko-fi.com/phenry) [![Buy Me A Coffee](static/img/buymeacoffee-logo.svg)](https://www.buymeacoffee.com/ph7cms)
 
@@ -45,13 +46,13 @@ You get and own all data and files, hosted on your own server! ✌️
 - [Resources / Documentation](#-documentation)
 - [Troubleshooting](#-troubleshooting)
 - [Contributing to the project](#-contributing)
-- [License](#%EF%B8%8F-license)
 - [Why pH7Builder is Eco-Friendly?](#-ph7builder-the-eco-friendly-cms-%EF%B8%8F)
-- [The toolsets I use](#-toolssoftware-used-to-develop-ph7builder)
 - [About Me](#-the-cook)
   - [Contact Me](#-contact-suggestion--feedback)
   - [Hire Me](#-hire-me-at-your-company)
   - [Offer me a cup of tea?](#-offer-me-a-cup-of-tea-or-tea-bags-)
+- [Tools Used to Develop pH7Builder](#-toolssoftware-used-to-develop-ph7builder)
+- [License](#%EF%B8%8F-license)
 
 
 ## 👀 Software Overview 🎉
@@ -90,7 +91,7 @@ This Free and Open Source **Social Dating Site Builder** wants to be low resourc
 * Watermark Branding
 * Instant Messenger
 * In-built affiliate system (that encourages brand influencers/ambassadors to promote your dating platform)
-* Newsletter
+* Mailing List Newsletter
 * Activity Streams
 * User Mentions (using the “@” symbol with the username such as [@pH-7](https://github.com/pH-7))
 * Member Approval System
@@ -161,7 +162,7 @@ This Free and Open Source **Social Dating Site Builder** wants to be low resourc
 
 ## ⚙ Requirements
 
-* **Application Server** PHP 8.0 or newer (optimized for **PHP 8+ and beyond**! 🚀).
+* **Application Server** PHP 8.0 or newer 🚀
 
 * **Database** MySQL/MariaDB 5.5.3 or newer.
 

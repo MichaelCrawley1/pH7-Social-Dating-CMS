@@ -135,6 +135,8 @@ class UserCoreModel extends Model
     }
 
     /**
+     * Retrieve the user's IP address from the log session table.
+     *
      * @param int $iProfileId
      * @param string $sTable
      *
@@ -192,7 +194,6 @@ class UserCoreModel extends Model
     {
         Various::checkModelTable($sTable);
 
-        $iDay = (int)$iDay;
         $bIsDay = ($iDay > 0);
 
         if ($sTable === DbTableName::MEMBER) {

@@ -25,7 +25,7 @@ use PH7\JustHttp\StatusCode;
 @set_time_limit(0);
 @ini_set('memory_limit', '528M');
 
-class BannedCoreCron extends Cron
+class BannedIpCoreCron extends Cron
 {
     /**
      * Contain the URL of the remote services we call to get the list of accurate banned IPs.
@@ -41,8 +41,8 @@ class BannedCoreCron extends Cron
 
     private const BANNED_IP_FILE_PATH = PH7_PATH_APP_CONFIG . Ban::DIR . Ban::IP_FILE;
 
-    private const ERROR_CALLING_WEB_SERVICE_MESSAGE = 'BannedCoreCron: Error while calling: %s';
-    private const ERROR_ADD_BANNED_IP_MESSAGE = 'Error while writing new banned IP addresses.';
+    private const ERROR_CALLING_WEB_SERVICE_MESSAGE = '%s: Error while calling: %s';
+    private const ERROR_ADD_BANNED_IP_MESSAGE = '%s: Error while writing new banned IP addresses.';
 
     private const NEW_LINE = "\r\n";
 
@@ -79,7 +79,7 @@ class BannedCoreCron extends Cron
 
         $this->doProcess();
 
-        echo t('The IPs banned list has been updated!');
+        echo t('The banned IP list has been updated!');
     }
 
     protected function doProcess(): void
@@ -94,7 +94,7 @@ class BannedCoreCron extends Cron
                  */
                 if (!$this->callWebService($sUrl)) {
                     $this->logErrorMessage(
-                        sprintf(self::ERROR_CALLING_WEB_SERVICE_MESSAGE, $sUrl)
+                        sprintf(self::ERROR_CALLING_WEB_SERVICE_MESSAGE, static::class, $sUrl)
                     );
                 }
 
@@ -103,7 +103,7 @@ class BannedCoreCron extends Cron
                  */
             } catch (Exception $oExcept) {
                 $this->logErrorMessage(
-                    sprintf(self::ERROR_CALLING_WEB_SERVICE_MESSAGE, $sUrl)
+                    sprintf(self::ERROR_CALLING_WEB_SERVICE_MESSAGE, static::class, $sUrl)
                 );
             }
         }
@@ -122,7 +122,9 @@ class BannedCoreCron extends Cron
          * Update the banned IP file
          */
         if (!$this->writeIps()) {
-            $this->logErrorMessage(self::ERROR_ADD_BANNED_IP_MESSAGE);
+            $this->logErrorMessage(
+                sprintf(self::ERROR_ADD_BANNED_IP_MESSAGE, static::class)
+            );
         }
     }
 
@@ -275,4 +277,4 @@ class BannedCoreCron extends Cron
 }
 
 // Get the job done!
-new BannedCoreCron;
+new BannedIpCoreCron;

@@ -2,7 +2,7 @@
 /**
  * @author           Pierre-Henry Soria <hello@ph7builder.com>
  * @package          PH7 / Framework / Layout / Tpl / Engine / PH7Tpl
- * @copyright        (c) 2011-2020, Pierre-Henry Soria. All Rights Reserved.
+ * @copyright        (c) 2011-2023, Pierre-Henry Soria. All Rights Reserved.
  * @license          MIT License; See LICENSE.md and COPYRIGHT.md in the root directory.
  *
  * @history          Supports now PHP 5 with beautiful object code (POO), (removed all the ugly object code from PHP 4.x).
@@ -388,9 +388,9 @@ class PH7Tpl extends Kernel implements Templatable, GenerableFile
         foreach ($this->_aVars as $sKey => $sValue) {
             /*** Variables ***/
 
-            // We can't convert an object to a string with str_replace, which we tested the variables with is_object function
+            // Skip any objects before parsing with str_replace
             if (!is_object($sValue)) {
-                $sCode = str_replace('{' . $sKey . '}', $sValue, $sCode);
+                $sCode = str_replace('{' . $sKey . '}', (string)$sValue, $sCode);
             }
 
             // Email Address

@@ -147,7 +147,7 @@ msgid "Invalid Email Address!"
 msgstr ""
 
 #: _protected/app/system/core/assets/ajax/ValidateCoreAjax.php:153
-msgid "This email already used by another member."
+msgid "Email already used. Yours? <a href=\"%0%\">Password forgotten?</a>"
 msgstr ""
 
 #: _protected/app/system/core/assets/ajax/ValidateCoreAjax.php:155
@@ -3232,7 +3232,7 @@ msgid "Require photo to be uploaded:"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:113
-msgid "Require Members to upload a profile photo during sign up."
+msgid "Require members to upload a profile photo during sign up."
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:113
@@ -3329,7 +3329,7 @@ msgid "Nudity Filter:"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:137
-msgid "Photos will be automatically pending approval if there are detected as \"Nude/Adult Photos\""
+msgid "Photos will be automatically pending approval if there are detected as \"Nude/Adult\" photos"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:139
@@ -3394,19 +3394,19 @@ msgid "Maximum password length:"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:173
-msgid "Login Attempt Protection"
+msgid "Protection - Failed Login Attempts"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:175
-msgid "Blocking login attempts exceeded for Users:"
+msgid "Blocking exceeded login attempts for Users:"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:178
-msgid "Blocking login attempts exceeded for Affiliates:"
+msgid "Blocking exceeded login attempts for Affiliates:"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:181
-msgid "Blocking login attempts exceeded for Admins:"
+msgid "Blocking exceeded login attempts for Admins:"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:183
@@ -3485,7 +3485,7 @@ msgid "Yes (recommended for security reasons)"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:211
-msgid "This protection can cause problems for logged in users with dynamic IPs. Please disable if their IP changes frequently during the session."
+msgid "This protection can cause problems for logged in users with dynamic IPs. Please disable if their IP changes frequently during their session."
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:214
@@ -3493,7 +3493,7 @@ msgid "Protect for Affiliates against session cookies hijacking:"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:214
-msgid "This protection can cause problems for affiliates with dynamic IPs. Please disable if their IP changes frequently during the session."
+msgid "This protection can cause problems for affiliates with dynamic IPs. Please disable if their IP changes frequently during their session."
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:217
@@ -3505,7 +3505,7 @@ msgid "Yes (highly recommended for security reasons)"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:217
-msgid "This protection can cause problems for admins with dynamic IPs. Please disable if their IP changes frequently during the session."
+msgid "This protection can cause problems for admins with dynamic IPs. Please disable if their IP changes frequently during their session."
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:219
@@ -3551,7 +3551,7 @@ msgid "Registration delay for Users:"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:227
-msgid "Number of minutes that has to pass before a user with the same IP address can register again. Enter \"0\" to disable."
+msgid "Number of minutes to wait before a user with the same IP address can register again. Enter \"0\" to disable."
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:230
@@ -3559,7 +3559,7 @@ msgid "Registration delay for Affiliates:"
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:230
-msgid "Number of minutes that has to pass before an affiliate with the same IP address can register again. Enter \"0\" to disable."
+msgid "Number of minutes to wait before an affiliate with the same IP address can register again. Enter \"0\" to disable."
 msgstr ""
 
 #: _protected/app/system/modules/admin123/forms/SettingForm.php:233
@@ -15434,7 +15434,7 @@ msgid "Remove the profile photo?"
 msgstr ""
 
 #: _protected/app/system/modules/user/views/base/tpl/setting/avatar.tpl:12
-msgid "Warning:"
+msgid "Careful"
 msgstr ""
 
 #: _protected/app/system/modules/user/views/base/tpl/setting/avatar.tpl:12
@@ -15708,4 +15708,3 @@ msgstr ""
 #: _protected/app/system/modules/user/forms/EditForm.php:68
 msgid "For security reasons and to avoid spam, you cannot change your email address. If it has changed, you will need to <a href=\"%0%\">delete</a> your account and create a new one."
 msgstr ""
-
